@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <header></header>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Spotify Playlist Finder</title>
+    <meta name="description" content="Free Web tutorials" />
+    <meta name="keywords" content="Spotify, HTML, CSS, JavaScript" />
+    <meta name="author" content="Bartosz Grochal" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
   <body>
     <header>
       <h1>Spotify Playlist Finder</h1>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+      <section class="search-playlist">
+        <form class="search-playlist__form">
+          <input type="hidden" id="token_input" />
+          <div class="search-playlist__select-container">
+            <select name="" id="genre_select">
+              <option>Select genre</option>
+            </select>
+          </div>
+          <div class="search-playlist__btn-container">
+            <input
+              type="submit"
+              id="submit_btn"
+              class="search-playlist__btn"
+              value="Search"
+            />
+          </div>
+        </form>
+      </section>
+      <section class="playlist-list"></section>
+    </main>
+    <footer>
+      <p>Spotify Playlist Finder created by Bartosz Grochal &copy; 2021</p>
+    </footer>
   </body>
 </html>
