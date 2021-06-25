@@ -1,0 +1,1 @@
+(()=>{"use strict";(new class{init(){console.log("Running the app.")}}).init()})();
