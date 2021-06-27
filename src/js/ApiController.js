@@ -1,4 +1,9 @@
+import { CLIENT_ID, CLIENT_SECRET } from "./spotifyApiConfig";
+
 export default class ApiController {
+  #clientId = CLIENT_ID; // private property
+  #clientSecret = CLIENT_SECRET; // private property
+
   async getToken() {
     const result = await fetch("https://accounts.spotify.com/api/token", {
       method: "POST",
