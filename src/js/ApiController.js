@@ -9,7 +9,8 @@ export default class ApiController {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-        Authorization: "Basic " + btoa(clientId + ":" + clientSecret),
+        Authorization:
+          "Basic " + btoa(this.#clientId + ":" + this.#clientSecret),
       },
       body: "grant_type=client_credentials",
     });

@@ -6,6 +6,7 @@ export default class AppController {
   #apiController = new ApiController();
   init() {
     console.log("Running the app.");
+    this.loadCategories();
   }
 
   async loadCategories() {
