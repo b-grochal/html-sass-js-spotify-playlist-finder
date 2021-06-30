@@ -2,8 +2,14 @@ import ApiController from "./ApiController";
 import UiController from "./UiController";
 
 export default class AppController {
-  #uiController = new UiController();
-  #apiController = new ApiController();
+  #uiController;
+  #apiController;
+
+  constructor() {
+    this.#uiController = new UiController();
+    this.#apiController = new ApiController();
+  }
+
   init() {
     console.log("Running the app.");
     this.loadCategories();

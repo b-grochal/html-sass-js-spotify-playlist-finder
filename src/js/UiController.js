@@ -1,13 +1,17 @@
 import HtmlFactory from "./HtmlFactory";
 
 export default class UiController {
-  // read-only private property
-  #domElements = {
-    categorySelect: "#category_select",
-    submitBtn: "#submit_btn",
-    main: "#main",
-  };
-  #htmlfactory = new HtmlFactory();
+  #domElements;
+  #htmlfactory;
+
+  constructor() {
+    this.#domElements = {
+      categorySelect: "#category_select",
+      submitBtn: "#submit_btn",
+      main: "#main",
+    };
+    this.#htmlfactory = new HtmlFactory();
+  }
 
   get domElements() {
     return this.#domElements;
