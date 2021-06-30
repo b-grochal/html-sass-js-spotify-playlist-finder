@@ -20,10 +20,13 @@ export default class ApiController {
   }
 
   async getCategories(token) {
-    const result = await fetch(`https://api.spotify.com/v1/browse/categories`, {
-      method: "GET",
-      headers: { Authorization: "Bearer " + token },
-    });
+    const result = await fetch(
+      `https://api.spotify.com/v1/browse/categories?locale=en_PL`,
+      {
+        method: "GET",
+        headers: { Authorization: "Bearer " + token },
+      }
+    );
 
     const data = await result.json();
     return data.categories.items;
