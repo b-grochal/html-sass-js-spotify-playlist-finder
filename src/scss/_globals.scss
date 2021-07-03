@@ -1,6 +1,7 @@
 html {
   font-size: 16px;
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
@@ -8,4 +9,17 @@ body {
   padding: 0;
   font-family: "Signika", sans-serif;
   font-weight: bold;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+footer {
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
