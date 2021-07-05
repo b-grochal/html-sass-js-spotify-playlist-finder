@@ -23,7 +23,23 @@
     <main class="main" id="main">
       <section class="search-playlist">
         <form class="search-playlist__form">
-          <input type="hidden" id="token_input" />
+          <div class="custom-select-wrapper">
+            <div class="custom-select">
+              <div class="custom-select__trigger">
+                <span class="custom-select__text">Tesla</span>
+                <div class="arrow"></div>
+              </div>
+              <div class="custom-options">
+                <span class="custom-option selected" data-value="tesla"
+                  >Tesla</span
+                >
+                <span class="custom-option" data-value="volvo">Volvo</span>
+                <span class="custom-option" data-value="mercedes"
+                  >Mercedes</span
+                >
+              </div>
+            </div>
+          </div>
           <div class="search-playlist__select-container">
             <select name="" id="category_select">
               <option>Select category</option>
