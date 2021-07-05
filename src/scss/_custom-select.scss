@@ -7,19 +7,14 @@
     flex-direction: column;
     border-width: 0 2px 0 2px;
     border-style: solid;
-    border-color: red;
+    border-color: $green;
 
     .custom-select__trigger {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 22px;
-      font-size: 20px;
-      font-weight: 300;
-      color: #3b3b3b;
-      height: 60px;
-      line-height: 60px;
+      padding: 5px 22px;
       background: #ffffff;
       cursor: pointer;
       border-width: 2px 0 2px 0;
@@ -29,6 +24,9 @@
 
     .custom-select__text {
       color: black;
+      font-size: 20px;
+      font-weight: 300;
+      color: #3b3b3b;
     }
 
     &.open {
@@ -96,11 +94,10 @@
     .custom-option {
       position: relative;
       display: block;
-      padding: 0 22px 0 22px;
+      padding: 5px 22px;
       font-size: 22px;
       font-weight: 300;
       color: #3b3b3b;
-      line-height: 60px;
       cursor: pointer;
       transition: all 0.5s;
 
