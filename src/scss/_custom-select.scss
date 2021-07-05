@@ -24,17 +24,57 @@
       cursor: pointer;
       border-width: 2px 0 2px 0;
       border-style: solid;
-      border-color: #394a6d;
+      border-color: red;
     }
 
     .custom-select__text {
       color: black;
     }
 
-    &.open .custom-options {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: all;
+    &.open {
+      .custom-options {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
+      .arrow::before {
+        left: -5px;
+        transform: rotate(-45deg);
+      }
+
+      .arrow::after {
+        left: 5px;
+        transform: rotate(45deg);
+      }
+    }
+
+    .arrow {
+      position: relative;
+      height: 15px;
+      width: 15px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        width: 0.15rem;
+        height: 100%;
+        transition: all 0.5s;
+      }
+
+      &::before {
+        left: -5px;
+        transform: rotate(45deg);
+        background-color: #394a6d;
+      }
+
+      &::after {
+        left: 5px;
+        transform: rotate(-45deg);
+        background-color: #394a6d;
+      }
     }
   }
 
