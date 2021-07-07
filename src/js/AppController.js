@@ -54,5 +54,26 @@ export default class AppController {
         select.classList.remove("open");
       }
     });
+
+    document
+      .querySelector(this.#uiController.domElements.submitBtn)
+      .addEventListener("click", async (e) => {
+        e.preventDefault();
+        const selectedCategory = document.querySelector(
+          ".custom-option.selected"
+        );
+
+        if (selectedCategory) {
+          this.#uiController.removePlaylistsList();
+          const token = localStorage.getItem("token");
+          const categoryId = selectedCategory.dataset.id;
+          const playlists = await this.#apiController.getPlaylistsByCategory(
+            token,
+            categoryId,
+            10
+          );
+          console.log(playlists);
+        }
+      });
   }
 }
