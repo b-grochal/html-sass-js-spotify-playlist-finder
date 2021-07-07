@@ -10,9 +10,9 @@ export default class AppController {
     this.#apiController = new ApiController();
   }
 
-  init() {
+  async init() {
     console.log("Running the app.");
-    this.loadCategories();
+    await this.loadCategories();
     this.configureSearchPlaylistSection();
   }
 
@@ -32,10 +32,14 @@ export default class AppController {
 
     for (const option of document.querySelectorAll(".custom-option")) {
       option.addEventListener("click", function () {
+        console.log("CLICK");
         if (!this.classList.contains("selected")) {
-          this.parentNode
-            .querySelector(".custom-option.selected")
-            .classList.remove("selected");
+          const selectedOption = this.parentNode.querySelector(
+            ".custom-option.selected"
+          );
+          if (selectedOption) {
+            selectedOption.classList.remove("selected");
+          }
           this.classList.add("selected");
           this.closest(".custom-select").querySelector(
             ".custom-select__trigger .custom-select__text"
@@ -44,11 +48,11 @@ export default class AppController {
       });
     }
 
-    window.addEventListener("click", function (e) {
-      const select = document.querySelector(".custom-select");
-      if (!select.contains(e.target)) {
-        select.classList.remove("open");
-      }
-    });
+    // window.addEventListener("click", function (e) {
+    //   const select = document.querySelector(".custom-select");
+    //   if (!select.contains(e.target)) {
+    //     select.classList.remove("open");
+    //   }
+    // });
   }
 }
