@@ -6,7 +6,7 @@ export default class UiController {
 
   constructor() {
     this.#domElements = {
-      categorySelect: "#category_select",
+      categoryOptions: "#category_options",
       submitBtn: "#submit_btn",
       main: "#main",
     };
@@ -23,7 +23,7 @@ export default class UiController {
       this.#htmlfactory.generateCategoriesOptions(categories);
     console.log(categoriesHtml);
     document
-      .querySelector(this.#domElements.categorySelect)
+      .querySelector(this.#domElements.categoryOptions)
       .insertAdjacentHTML("beforeend", categoriesHtml);
   }
 }
