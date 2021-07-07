@@ -1,0 +1,18 @@
+.search-playlist {
+  padding: 25px 0;
+
+  .search-playlist__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .search-playlist__btn {
+      color: $white;
+      background-color: $green;
+      padding: 4px 4px;
+      border-radius: 50%;
+      font-size: 12px;
+    }
+  }
+}
