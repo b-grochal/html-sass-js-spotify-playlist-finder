@@ -8,4 +8,25 @@ export default class HtmlFactory {
     );
     return html.join("\n");
   }
+
+  generatePlaylistsListSection(playlists) {
+    const playlistsHtml = [];
+
+    playlists.forEach((playlist) =>
+      playlistsHtml.push(
+        `
+    <a>
+      <img src="${playlist.images[0].url}">
+      <span>${playlist.name}</span>
+    </a>
+    `
+      )
+    );
+
+    return [
+      '<section class="playlists-list">',
+      ...playlistsHtml,
+      "</section>",
+    ].join("\n");
+  }
 }

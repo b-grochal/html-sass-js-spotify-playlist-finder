@@ -73,6 +73,7 @@ export default class AppController {
             10
           );
           console.log(playlists);
+          this.#uiController.showPlaylistsList(playlists);
         }
       });
   }
