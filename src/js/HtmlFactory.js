@@ -15,9 +15,9 @@ export default class HtmlFactory {
     playlists.forEach((playlist) =>
       playlistsHtml.push(
         `
-    <a class="playlists-list__card">
+    <a class="playlists-list__playlist">
       <img class="playlists-list__img" src="${playlist.images[0].url}">
-      <span class="playlists-list__description">${playlist.name}</span>
+      <span class="playlists-list__name">${playlist.name}</span>
     </a>
     `
       )
