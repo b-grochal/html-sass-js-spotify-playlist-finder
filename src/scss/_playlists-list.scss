@@ -8,7 +8,7 @@
   justify-content: center;
   gap: 10px;
 
-  .playlists-list__card {
+  .playlists-list__playlist {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -26,8 +26,9 @@
       object-fit: contain;
     }
 
-    .playlists-list__description {
+    .playlists-list__name {
       color: $white;
+      font-size: 1.1rem;
     }
   }
 }

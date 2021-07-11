@@ -7,12 +7,20 @@
     align-items: center;
     gap: 10px;
 
+    @include breakpoint("extra-small") {
+      flex-direction: column;
+    }
+
     .search-playlist__btn {
       color: $white;
       background-color: $green;
-      padding: 4px 4px;
-      border-radius: 50%;
-      font-size: 12px;
+      padding: 5px 10px;
+      font-size: 1.3rem;
+      border: none;
+
+      @include breakpoint("extra-small") {
+        width: 100%;
+      }
     }
   }
 }
