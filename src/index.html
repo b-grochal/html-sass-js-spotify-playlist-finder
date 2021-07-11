@@ -7,34 +7,48 @@
     <meta name="keywords" content="Spotify, HTML, CSS, JavaScript" />
     <meta name="author" content="Bartosz Grochal" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <header>
-      <h1>Spotify Playlist Finder</h1>
+    <header class="header">
+      <h1 class="header__title">Spotify Playlist Finder</h1>
     </header>
-    <main>
+    <main class="main" id="main">
       <section class="search-playlist">
         <form class="search-playlist__form">
-          <input type="hidden" id="token_input" />
-          <div class="search-playlist__select-container">
-            <select name="" id="category_select">
+          <!-- <select name="" id="category_select">
               <option>Select category</option>
-            </select>
+            </select> -->
+          <div class="custom-select-wrapper">
+            <div class="custom-select">
+              <div class="custom-select__trigger">
+                <span class="custom-select__text">Select category</span>
+                <div class="arrow"></div>
+              </div>
+              <div class="custom-options" id="category_options"></div>
+            </div>
           </div>
-          <div class="search-playlist__btn-container">
-            <input
-              type="submit"
-              id="submit_btn"
-              class="search-playlist__btn"
-              value="Search"
-            />
-          </div>
+          <input
+            type="submit"
+            id="submit_btn"
+            class="search-playlist__btn"
+            value="Search"
+          />
         </form>
       </section>
-      <section class="playlist-list"></section>
+      <section class="playlists-list"></section>
     </main>
-    <footer>
-      <p>Spotify Playlist Finder created by Bartosz Grochal &copy; 2021</p>
+    <footer class="footer">
+      <p class="footer__paragraph">
+        Spotify Playlist Finder created by Bartosz Grochal &copy; 2021
+      </p>
     </footer>
   </body>
 </html>

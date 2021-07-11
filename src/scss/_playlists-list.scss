@@ -1,0 +1,33 @@
+.playlists-list {
+  padding: 20px 0;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  .playlists-list__card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $grey;
+      transition: all 0.3s linear;
+    }
+
+    .playlists-list__img {
+      width: 250px;
+      height: 250px;
+      object-fit: contain;
+    }
+
+    .playlists-list__description {
+      color: $white;
+    }
+  }
+}

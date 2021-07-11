@@ -1,0 +1,109 @@
+.custom-select-wrapper {
+  user-select: none;
+  width: 300px;
+
+  .custom-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .custom-select__trigger {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 5px 22px;
+      background: $white;
+      cursor: pointer;
+    }
+
+    .custom-select__text {
+      color: $black;
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    &.open {
+      .custom-options {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
+      .arrow::before {
+        left: -5px;
+        transform: rotate(-45deg);
+      }
+
+      .arrow::after {
+        left: 5px;
+        transform: rotate(45deg);
+      }
+    }
+
+    .arrow {
+      position: relative;
+      height: 15px;
+      width: 15px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        width: 0.15rem;
+        height: 100%;
+        transition: all 0.5s;
+      }
+
+      &::before {
+        left: -5px;
+        transform: rotate(45deg);
+        background-color: $black;
+      }
+
+      &::after {
+        left: 5px;
+        transform: rotate(-45deg);
+        background-color: $black;
+      }
+    }
+  }
+
+  .custom-options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $white;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    max-height: 500px;
+    overflow: auto;
+
+    .custom-option {
+      position: relative;
+      display: block;
+      padding: 5px 22px;
+      font-size: 22px;
+      font-weight: 300;
+      color: $black;
+      cursor: pointer;
+      transition: all 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $lightGrey;
+      }
+
+      &.selected {
+        background-color: $green;
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,5 +1,11 @@
-$bg: blue;
+@import "scss/variables";
+@import "scss/globals";
 
-body {
-  background-color: $bg;
-}
+@import "scss/header";
+@import "scss/main";
+@import "scss/footer";
+
+@import "scss/search-playlist";
+@import "scss/playlists-list";
+
+@import "scss/custom-select";

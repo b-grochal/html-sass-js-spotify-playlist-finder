@@ -1,0 +1,11 @@
+.footer {
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+
+  &__paragraph {
+    color: $white;
+  }
+}
