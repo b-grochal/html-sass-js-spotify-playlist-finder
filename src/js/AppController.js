@@ -46,7 +46,7 @@ export default class AppController {
             .closest(".custom-select")
             .querySelector(
               ".custom-select__trigger .custom-select__text"
-            ).textContent = this.textContent;
+            ).textContent = e.target.textContent;
         }
       });
     }
