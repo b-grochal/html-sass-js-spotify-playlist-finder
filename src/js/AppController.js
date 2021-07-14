@@ -90,14 +90,24 @@ export default class AppController {
     document
       .querySelectorAll(".playlists-list__playlist")
       .forEach((playlist) => {
-        playlist.addEventListener("click", (e) => {
-          let playlistName;
+        playlist.addEventListener("click", async (e) => {
+          let selectedPlaylistName;
+
           if (e.target.classList.contains("playlists-list__playlist")) {
-            playlistName = e.target.dataset.name;
+            selectedPlaylistName = e.target.dataset.name;
           } else {
-            playlistName = e.target.parentNode.dataset.name;
+            selectedPlaylistName = e.target.parentNode.dataset.name;
           }
-          console.log(this.#appState.getPlaylistByName(playlistName));
+
+          const selectedPlaylist =
+            this.#appState.getPlaylistByName(selectedPlaylistName);
+          const token = localStorage.getItem("token");
+          const tracks = await this.#apiController.getTracksFromPlaylist(
+            token,
+            selectedPlaylist.tracks.href,
+            10
+          );
+          console.log(tracks);
         });
       });
   }

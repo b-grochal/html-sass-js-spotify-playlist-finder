@@ -49,4 +49,14 @@ export default class ApiController {
     const data = await result.json();
     return data.playlists.items;
   }
+
+  async getTracksFromPlaylist(token, tracksLink, limit) {
+    const result = await fetch(`${tracksLink}?limit=${limit}`, {
+      method: "GET",
+      headers: { Authorization: "Bearer " + token },
+    });
+
+    const data = await result.json();
+    return data.items;
+  }
 }
