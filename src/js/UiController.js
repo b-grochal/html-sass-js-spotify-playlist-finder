@@ -9,6 +9,8 @@ export default class UiController {
       categoryOptions: "#category_options",
       submitBtn: "#submit_btn",
       main: "#main",
+      customSelectWrapper: ".custom-select-wrapper",
+      customSelect: ".customSelect",
     };
     this.#htmlfactory = new HtmlFactory();
   }
