@@ -1,13 +1,16 @@
 import ApiController from "./ApiController";
 import UiController from "./UiController";
+import AppState from "./AppState";
 
 export default class AppController {
   #uiController;
   #apiController;
+  #appState;
 
   constructor() {
     this.#uiController = new UiController();
     this.#apiController = new ApiController();
+    this.#appState = new AppState();
   }
 
   init() {
@@ -76,6 +79,7 @@ export default class AppController {
             10
           );
           console.log(playlists);
+          this.#appState.setPlaylists(playlists);
           this.#uiController.showPlaylistsList(playlists);
           this.configurePlaylistsListSection();
         }
@@ -93,6 +97,7 @@ export default class AppController {
           } else {
             playlistName = e.target.parentNode.dataset.name;
           }
+          console.log(this.#appState.getPlaylistByName(playlistName));
         });
       });
   }
