@@ -31,7 +31,7 @@ export default class AppController {
         document.querySelector(".custom-select").classList.toggle("open");
       });
 
-    for (const option of document.querySelectorAll(".custom-option")) {
+    document.querySelectorAll(".custom-option").forEach((option) => {
       option.addEventListener("click", (e) => {
         console.log("CLICK");
         if (!e.target.classList.contains("selected")) {
@@ -49,7 +49,7 @@ export default class AppController {
             ).textContent = e.target.textContent;
         }
       });
-    }
+    });
 
     window.addEventListener("click", (e) => {
       const select = document.querySelector(".custom-select");
