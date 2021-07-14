@@ -77,7 +77,23 @@ export default class AppController {
           );
           console.log(playlists);
           this.#uiController.showPlaylistsList(playlists);
+          this.configurePlaylistsListSection();
         }
+      });
+  }
+
+  configurePlaylistsListSection() {
+    document
+      .querySelectorAll(".playlists-list__playlist")
+      .forEach((playlist) => {
+        playlist.addEventListener("click", (e) => {
+          let playlistName;
+          if (e.target.classList.contains("playlists-list__playlist")) {
+            playlistName = e.target.dataset.name;
+          } else {
+            playlistName = e.target.parentNode.dataset.name;
+          }
+        });
       });
   }
 }
