@@ -107,7 +107,8 @@ export default class AppController {
             selectedPlaylist.tracks.href,
             10
           );
-          console.log(tracks);
+          this.#uiController.removePlaylistsList();
+          this.#uiController.showPlaylistDetails(selectedPlaylist, tracks);
         });
       });
   }

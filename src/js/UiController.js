@@ -37,6 +37,14 @@ export default class UiController {
       .insertAdjacentHTML("beforeend", playlistsListHtml);
   }
 
+  showPlaylistDetails(playlist, tracks) {
+    const playlistDetailsHtml =
+      this.#htmlfactory.generatePlaylistDetailsSection(playlist, tracks);
+    document
+      .querySelector(this.#domElements.main)
+      .insertAdjacentHTML("beforeend", playlistDetailsHtml);
+  }
+
   removePlaylistsList() {
     const playlistsList = document.querySelector(".playlists-list");
     if (playlistsList) {

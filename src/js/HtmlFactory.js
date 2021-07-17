@@ -45,8 +45,8 @@ export default class HtmlFactory {
     return [
       '<section class="playlist-detials">',
       '<header class="playlist-details__header">',
-      '<img class="playlist-details__playlist-image">',
-      '<h2 class="playlist-details__playlist-name>',
+      `<img class="playlist-details__playlist-image" src="${playlist.images[0].url}>`,
+      `<h2 class="playlist-details__playlist-name>${playlist.name}</h2>`,
       "</header>",
       '<section class="playlist-details__tracks>',
       ...tracksHtml,
