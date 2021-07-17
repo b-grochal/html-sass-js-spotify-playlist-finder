@@ -22,4 +22,12 @@
       object-fit: contain;
     }
   }
+
+  .playlist-details__tracks {
+    .playlist-details__track {
+      .playlist-details__track-description {
+        color: $white;
+      }
+    }
+  }
 }
