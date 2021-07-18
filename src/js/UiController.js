@@ -20,10 +20,8 @@ export default class UiController {
   }
 
   insertCategories(categories) {
-    console.log(categories);
     const categoriesHtml =
       this.#htmlfactory.generateCategoriesOptions(categories);
-    console.log(categoriesHtml);
     document
       .querySelector(this.#domElements.categoryOptions)
       .insertAdjacentHTML("beforeend", categoriesHtml);

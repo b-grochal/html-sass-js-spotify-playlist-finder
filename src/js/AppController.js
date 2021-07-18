@@ -14,7 +14,6 @@ export default class AppController {
   }
 
   init() {
-    console.log("Running the app.");
     this.loadCategories().then(() => {
       this.configureSearchPlaylistSection();
     });
@@ -36,7 +35,6 @@ export default class AppController {
 
     document.querySelectorAll(".custom-option").forEach((option) => {
       option.addEventListener("click", (e) => {
-        console.log("CLICK");
         if (!e.target.classList.contains("selected")) {
           const selectedOption = e.target.parentNode.querySelector(
             ".custom-option.selected"
@@ -79,7 +77,6 @@ export default class AppController {
             categoryId,
             10
           );
-          console.log(playlists);
           this.#appState.setPlaylists(playlists);
           this.#uiController.showPlaylistsList(playlists);
           this.configurePlaylistsListSection();
@@ -108,7 +105,6 @@ export default class AppController {
             selectedPlaylist.tracks.href,
             10
           );
-          console.log(tracks);
           this.#uiController.removePlaylistsList();
           this.#uiController.removeSearchPlaylist();
           this.#uiController.removePlaylistDetails();
