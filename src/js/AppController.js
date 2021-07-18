@@ -111,6 +111,7 @@ export default class AppController {
           console.log(tracks);
           this.#uiController.removePlaylistsList();
           this.#uiController.removeSearchPlaylist();
+          this.#uiController.removePlaylistDetails();
           this.#uiController.showPlaylistDetails(selectedPlaylist, tracks);
           this.configurePlaylistDetailsSection();
         });
