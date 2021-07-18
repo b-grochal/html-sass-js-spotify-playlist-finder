@@ -17,6 +17,7 @@
       padding: 5px 10px;
       font-size: 1.3rem;
       border: none;
+      cursor: pointer;
 
       @include breakpoint("extra-small") {
         width: 100%;

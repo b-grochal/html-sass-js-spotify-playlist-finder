@@ -42,9 +42,20 @@
         background-color: $grey;
         transition: all 0.3s linear;
       }
+    }
+  }
 
-      .playlist-details__track-description {
-      }
+  .playlist-details__controls {
+    display: flex;
+    justify-content: flex-end;
+
+    .playlist-details__btn {
+      color: $white;
+      background-color: $green;
+      padding: 5px 10px;
+      font-size: 1.3rem;
+      border: none;
+      cursor: pointer;
     }
   }
 }
