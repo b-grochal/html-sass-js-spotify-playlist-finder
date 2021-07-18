@@ -111,7 +111,21 @@ export default class AppController {
           this.#uiController.removePlaylistsList();
           this.#uiController.removeSearchPlaylist();
           this.#uiController.showPlaylistDetails(selectedPlaylist, tracks);
+          this.configurePlaylistDetailsSection();
         });
+      });
+  }
+
+  configurePlaylistDetailsSection() {
+    document
+      .querySelector(".playlist-details__btn")
+      .addEventListener("click", async (e) => {
+        this.#uiController.removePlaylistDetails();
+        this.#uiController.showSearchPlaylist();
+        this.#uiController.showPlaylistsList(this.#appState.getPlaylists());
+        await this.loadCategories();
+        this.configurePlaylistsListSection();
+        this.configureSearchPlaylistSection();
       });
   }
 }

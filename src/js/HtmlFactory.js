@@ -11,6 +11,27 @@ export default class HtmlFactory {
     return html.join("\n");
   }
 
+  generateSearchPlaylistSection() {
+    const searchPlaylistHtml = [
+      '<section class="search-playlist">',
+      '<form class="search-playlist__form">',
+      '<div class="custom-select-wrapper">',
+      '<div class="custom-select">',
+      '<div class="custom-select__trigger">',
+      '<span class="custom-select__text">Select category</span>',
+      '<div class="arrow"></div>',
+      "</div>",
+      '<div class="custom-options" id="category_options"></div>',
+      "</div>",
+      "</div>",
+      '<input type="submit" id="submit_btn" class="search-playlist__btn" value="Search" />',
+      "</form>",
+      "</section>",
+    ];
+
+    return searchPlaylistHtml.join("\n");
+  }
+
   generatePlaylistsListSection(playlists) {
     const playlistsHtml = [];
 

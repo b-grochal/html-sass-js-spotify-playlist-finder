@@ -5,6 +5,10 @@ export default class AppState {
     this.#playlists = playlists;
   }
 
+  getPlaylists() {
+    return this.#playlists;
+  }
+
   getPlaylistByName(playlistName) {
     return this.#playlists.find((playlist) => playlist.name === playlistName);
   }

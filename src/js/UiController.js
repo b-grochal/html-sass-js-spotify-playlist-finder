@@ -29,6 +29,14 @@ export default class UiController {
       .insertAdjacentHTML("beforeend", categoriesHtml);
   }
 
+  showSearchPlaylist() {
+    const searchPlaylistHtml =
+      this.#htmlfactory.generateSearchPlaylistSection();
+    document
+      .querySelector(this.#domElements.main)
+      .insertAdjacentHTML("beforeend", searchPlaylistHtml);
+  }
+
   showPlaylistsList(playlists) {
     const playlistsListHtml =
       this.#htmlfactory.generatePlaylistsListSection(playlists);
@@ -56,6 +64,13 @@ export default class UiController {
     const searchPlaylist = document.querySelector(".search-playlist");
     if (searchPlaylist) {
       searchPlaylist.remove();
+    }
+  }
+
+  removePlaylistDetails() {
+    const playlistDetails = document.querySelector(".playlist-details");
+    if (playlistDetails) {
+      playlistDetails.remove();
     }
   }
 }
