@@ -70,6 +70,7 @@ export default class AppController {
         );
 
         if (selectedCategory) {
+          this.#appState.setCategory(selectedCategory.dataset.name);
           this.#uiController.removePlaylistsList();
           const token = localStorage.getItem("token");
           const categoryId = selectedCategory.dataset.id;
@@ -126,6 +127,13 @@ export default class AppController {
         await this.loadCategories();
         this.configurePlaylistsListSection();
         this.configureSearchPlaylistSection();
+        document
+          .querySelector(
+            `.custom-option[data-name="${this.#appState.getCategory()}"]`
+          )
+          .classList.add("selected");
+        document.querySelector(".custom-select__text").textContent =
+          this.#appState.getCategory();
       });
   }
 }
