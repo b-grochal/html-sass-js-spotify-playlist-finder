@@ -51,4 +51,11 @@ export default class UiController {
       playlistsList.remove();
     }
   }
+
+  removeSearchPlaylist() {
+    const searchPlaylist = document.querySelector(".search-playlist");
+    if (searchPlaylist) {
+      searchPlaylist.remove();
+    }
+  }
 }
