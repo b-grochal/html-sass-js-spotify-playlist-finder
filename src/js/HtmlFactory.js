@@ -1,3 +1,5 @@
+import { convertMilisecondsToMinutesString } from "./helpers";
+
 export default class HtmlFactory {
   generateCategoriesOptions(categories) {
     const html = [];
@@ -36,7 +38,12 @@ export default class HtmlFactory {
       tracksHtml.push(
         `
       <a class="playlist-details__track">
-        <span class="playlist-details__track-description">${track.track.name} - ${track.track.artists[0].name}</span>
+        <span class="playlist-details__track-description">${
+          track.track.name
+        } - ${track.track.artists[0].name}</span>
+        <span class="playlist-details__track-duration">${convertMilisecondsToMinutesString(
+          track.track.duration_ms
+        )}</span>
       </a>
       `
       )
