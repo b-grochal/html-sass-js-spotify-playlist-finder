@@ -29,6 +29,14 @@ export default class UiController {
       .insertAdjacentHTML("beforeend", categoriesHtml);
   }
 
+  showSearchPlaylist() {
+    const searchPlaylistHtml =
+      this.#htmlfactory.generateSearchPlaylistSection();
+    document
+      .querySelector(this.#domElements.main)
+      .insertAdjacentHTML("beforeend", searchPlaylistHtml);
+  }
+
   showPlaylistsList(playlists) {
     const playlistsListHtml =
       this.#htmlfactory.generatePlaylistsListSection(playlists);
@@ -37,10 +45,32 @@ export default class UiController {
       .insertAdjacentHTML("beforeend", playlistsListHtml);
   }
 
+  showPlaylistDetails(playlist, tracks) {
+    const playlistDetailsHtml =
+      this.#htmlfactory.generatePlaylistDetailsSection(playlist, tracks);
+    document
+      .querySelector(this.#domElements.main)
+      .insertAdjacentHTML("beforeend", playlistDetailsHtml);
+  }
+
   removePlaylistsList() {
     const playlistsList = document.querySelector(".playlists-list");
     if (playlistsList) {
       playlistsList.remove();
+    }
+  }
+
+  removeSearchPlaylist() {
+    const searchPlaylist = document.querySelector(".search-playlist");
+    if (searchPlaylist) {
+      searchPlaylist.remove();
+    }
+  }
+
+  removePlaylistDetails() {
+    const playlistDetails = document.querySelector(".playlist-details");
+    if (playlistDetails) {
+      playlistDetails.remove();
     }
   }
 }

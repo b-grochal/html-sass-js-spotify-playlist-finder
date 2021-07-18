@@ -1,13 +1,16 @@
 import ApiController from "./ApiController";
 import UiController from "./UiController";
+import AppState from "./AppState";
 
 export default class AppController {
   #uiController;
   #apiController;
+  #appState;
 
   constructor() {
     this.#uiController = new UiController();
     this.#apiController = new ApiController();
+    this.#appState = new AppState();
   }
 
   init() {
@@ -67,6 +70,7 @@ export default class AppController {
         );
 
         if (selectedCategory) {
+          this.#appState.setCategory(selectedCategory.dataset.name);
           this.#uiController.removePlaylistsList();
           const token = localStorage.getItem("token");
           const categoryId = selectedCategory.dataset.id;
@@ -76,8 +80,61 @@ export default class AppController {
             10
           );
           console.log(playlists);
+          this.#appState.setPlaylists(playlists);
           this.#uiController.showPlaylistsList(playlists);
+          this.configurePlaylistsListSection();
         }
+      });
+  }
+
+  configurePlaylistsListSection() {
+    document
+      .querySelectorAll(".playlists-list__playlist")
+      .forEach((playlist) => {
+        playlist.addEventListener("click", async (e) => {
+          let selectedPlaylistName;
+
+          if (e.target.classList.contains("playlists-list__playlist")) {
+            selectedPlaylistName = e.target.dataset.name;
+          } else {
+            selectedPlaylistName = e.target.parentNode.dataset.name;
+          }
+
+          const selectedPlaylist =
+            this.#appState.getPlaylistByName(selectedPlaylistName);
+          const token = localStorage.getItem("token");
+          const tracks = await this.#apiController.getTracksFromPlaylist(
+            token,
+            selectedPlaylist.tracks.href,
+            10
+          );
+          console.log(tracks);
+          this.#uiController.removePlaylistsList();
+          this.#uiController.removeSearchPlaylist();
+          this.#uiController.removePlaylistDetails();
+          this.#uiController.showPlaylistDetails(selectedPlaylist, tracks);
+          this.configurePlaylistDetailsSection();
+        });
+      });
+  }
+
+  configurePlaylistDetailsSection() {
+    document
+      .querySelector(".playlist-details__btn")
+      .addEventListener("click", async (e) => {
+        this.#uiController.removePlaylistDetails();
+        this.#uiController.showSearchPlaylist();
+        this.#uiController.showPlaylistsList(this.#appState.getPlaylists());
+        await this.loadCategories();
+        this.configurePlaylistsListSection();
+        this.configureSearchPlaylistSection();
+        document
+          .querySelector(
+            `.custom-option[data-name="${this.#appState.getCategory()}"]`
+          )
+          .classList.add("selected");
+        document.querySelector(".custom-select__text").textContent =
+          this.#appState.getCategory();
       });
   }
 }
