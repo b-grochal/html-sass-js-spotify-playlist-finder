@@ -20,6 +20,11 @@
       width: 180px;
       height: 180px;
       object-fit: contain;
+
+      @include breakpoint("small") {
+        width: 100px;
+        height: 100px;
+      }
     }
   }
 
