@@ -78,6 +78,7 @@ export default class AppController {
             10
           );
           this.#appState.setPlaylists(playlists);
+          this.#uiController.removePlaylistsList();
           this.#uiController.showPlaylistsList(playlists);
           this.configurePlaylistsListSection();
         }
